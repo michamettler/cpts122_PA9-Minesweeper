@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-    // Run tests first
+    // tests
     std::cout << "Starting Minesweeper Tests..." << std::endl;
     std::cout << std::endl;
 
@@ -14,7 +14,7 @@ int main() {
     std::cout << "Press Enter to start the game..." << std::endl;
     std::cin.get();
 
-    // Start the game after tests
+    // start game
     Game game;
     game.run();
 
