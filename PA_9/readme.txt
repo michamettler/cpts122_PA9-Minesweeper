@@ -7,6 +7,18 @@ A classic Minesweeper game implementation using C++ and SFML (Simple and Fast Mu
 1. Brennan Hart - Lab Section 2 (Dylan P.)
 2. Micha Mettler - Lab Section 2 (Dylan P.)
 
+## AI Disclaimer
+
+This project utilized AI assistance (Claude by Anthropic) for specific components:
+
+- **Drawing Functions**: The `drawTile()`, `drawGrid()`, `drawGameOverlay()`, and `drawLegend()` functions in `Game.cpp` were developed with AI assistance for rendering game elements.
+- **Color Schemes**: The color palette used throughout the game (tile colors, number colors, status bar colors) was generated with AI assistance.
+- **Test Cases**: The automated test suite (`Test.hpp` and `Test.cpp`) was created with AI assistance to validate core game functionality.
+- **Font Handling**: Cross-platform font loading implementation was developed with AI guidance.
+- **README Documentation**: This README file was generated with AI assistance.
+
+The core game logic, data structures, and overall architecture were implemented by the team members.
+
 ## Overview
 
 This is a fully functional Minesweeper game with a graphical user interface. Navigate the grid, reveal tiles, flag potential mines, and try to clear the board without hitting a mine!
