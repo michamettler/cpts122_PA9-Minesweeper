@@ -25,7 +25,8 @@ void TestBoard::runAllTests() {
     std::cout << "========================================" << std::endl;
 }
 
-// Helper functions
+// ---------------------- Helper functions --------------------------
+
 bool TestBoard::assertEqual(int expected, int actual, const std::string& testName) {
     totalTests++;
     bool passed = (expected == actual);
@@ -75,6 +76,8 @@ void TestBoard::printTestResult(bool passed, const std::string& testName) {
         std::cout << "[FAIL] " << testName << std::endl;
     }
 }
+
+// ---------------------- Test cases --------------------------
 
 // Test Case 1: Board Initialization
 void TestBoard::testBoardInitialization() {

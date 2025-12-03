@@ -10,7 +10,7 @@ int Tile::reveal(vector<Tile*> neighbors) {
     }
 
     if (adjacentMines == 0) symbol = ' ';
-    else symbol = adjacentMines + 48;    // int -> char
+    else symbol = adjacentMines + 48; // int -> char
 
     return adjacentMines;
 }

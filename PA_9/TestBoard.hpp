@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+// AI DISCLAIMER: Test cases generated with AI
 class TestBoard {
 public:
     TestBoard();

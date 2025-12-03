@@ -4,43 +4,41 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-// Window and layout constants
+// window and layout constants
 #define TILE_SIZE 80
 #define PADDING 50
 #define STATUS_HEIGHT 60
-#define LEGEND_WIDTH 250        // Width for side legend
+#define LEGEND_WIDTH 250
 #define BOARD_SIZE 16
 #define NUM_MINES 40
-#define WINDOW_WIDTH (BOARD_SIZE * TILE_SIZE + 2 * PADDING + LEGEND_WIDTH)  // Added legend width
-#define WINDOW_HEIGHT (BOARD_SIZE * TILE_SIZE + 2 * PADDING + STATUS_HEIGHT)  // Removed legend height
+#define WINDOW_WIDTH (BOARD_SIZE * TILE_SIZE + 2 * PADDING + LEGEND_WIDTH) 
+#define WINDOW_HEIGHT (BOARD_SIZE * TILE_SIZE + 2 * PADDING + STATUS_HEIGHT)
 
 class Game {
 public:
     Game(int boardSize = BOARD_SIZE, int numMines = NUM_MINES);
-    ~Game();  // Destructor
+    ~Game();  // destructor
 
-    void run();  // Main game loop
+    void run(); // game loop
 
 private:
-    // Event handling and game logic
     void handleEvents();
     void update();
     void render();
     void resetGame();
 
-    // Rendering functions
+    // rendering functions - had a lot of help from AI for these as SFML was a new framework
     void drawTile(int x, int y, const Tile* tile);
     void drawGrid();
     void drawGameOverlay();
-    void drawLegend();  // Draw control instructions
+    void drawLegend();
 
-    // Game data
+    // game data
     Board* board;
     sf::RenderWindow window;
     sf::Font font;
     bool fontLoaded;
 
-    // Game state enum
     enum class GameState {
         PLAYING,
         WON,
@@ -48,7 +46,7 @@ private:
     };
     GameState gameState;
 
-    // Color scheme
+    // color scheme - generated with AI
     sf::Color colorUnrevealed;
     sf::Color colorRevealed;
     sf::Color colorMine;
@@ -56,8 +54,6 @@ private:
     sf::Color colorCursor;
     sf::Color colorGrid;
     sf::Color colorBackground;
-    sf::Color colorText;  // For legend text
-
-    // Helper function for number colors
+    sf::Color colorText;
     sf::Color getNumberColor(int number);
 };

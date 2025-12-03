@@ -24,7 +24,7 @@ Game::Game(int boardSize, int numMines)
 	}
 	// ===== END AI CODE =====
 
-	// Initialize color scheme (AI-generated colors)
+	// Initialize color scheme (color scheme from AI)
 	colorUnrevealed = sf::Color(180, 180, 180);
 	colorRevealed = sf::Color(220, 220, 220);
 	colorMine = sf::Color(220, 20, 20);
@@ -32,7 +32,7 @@ Game::Game(int boardSize, int numMines)
 	colorCursor = sf::Color(100, 150, 255, 100);
 	colorGrid = sf::Color(100, 100, 100);
 	colorBackground = sf::Color(240, 240, 240);
-	colorText = sf::Color(50, 50, 50);  // Dark gray for text
+	colorText = sf::Color(50, 50, 50);
 }
 
 Game::~Game() {
@@ -40,7 +40,7 @@ Game::~Game() {
 }
 
 void Game::run() {
-	// Main game loop
+	// game loop
 	while (window.isOpen()) {
 		handleEvents();
 		update();
@@ -50,13 +50,13 @@ void Game::run() {
 
 void Game::handleEvents() {
 	while (const std::optional<sf::Event> event = window.pollEvent()) {
-		// Window close event
+		// closing window
 		if (event->is<sf::Event::Closed>()) {
 			window.close();
 		}
 
 		if (const auto* keyPress = event->getIf<sf::Event::KeyPressed>()) {
-			// Arrow key movement
+			// arrow key movement
 			if (keyPress->code == sf::Keyboard::Key::Up) {
 				board->moveCursor(0, -1);
 			}
@@ -85,7 +85,6 @@ void Game::handleEvents() {
 }
 
 void Game::update() {
-	// Check for win condition
 	if (gameState == GameState::PLAYING) {
 		if (board->checkForWin()) {
 			gameState = GameState::WON;
@@ -96,13 +95,14 @@ void Game::update() {
 void Game::render() {
 	window.clear(colorBackground);
 
-	drawGrid();          // Draw the minesweeper board
-	drawGameOverlay();   // Draw status bar at top
-	drawLegend();        // Draw control instructions at bottom
+	drawGrid();          // minesweeper board
+	drawGameOverlay();   // status bar at top
+	drawLegend();        // control instructions left to board
 
 	window.display();
 }
 
+// help from AI (not a single prompt - ongoing instructions)
 void Game::drawTile(int x, int y, const Tile* tile) {
 	if (!tile) return;
 
@@ -228,6 +228,7 @@ void Game::drawTile(int x, int y, const Tile* tile) {
 	}
 }
 
+// help from AI (not a single prompt - ongoing instructions)
 void Game::drawGrid() {
 	int size = board->getSize();
 
@@ -300,6 +301,7 @@ void Game::drawGameOverlay() {
 	}
 }
 
+// help from AI (not a single prompt - ongoing instructions)
 void Game::drawLegend() {
 	// Calculate legend position (right side of board)
 	int boardPixelWidth = board->getSize() * TILE_SIZE;
@@ -371,7 +373,6 @@ void Game::drawLegend() {
 }
 
 void Game::resetGame() {
-	// Reset board with same size and mine count
 	int size = board->getSize();
 	int mines = board->getMines();
 	delete board;
