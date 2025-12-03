@@ -69,19 +69,15 @@ void Game::handleEvents() {
 			else if (keyPress->code == sf::Keyboard::Key::Right) {
 				board->moveCursor(1, 0);
 			}
-			// Game actions
-			else if (keyPress->code == sf::Keyboard::Key::Space) {
-				// Reveal tile - if it's a mine, player loses
+			else if (keyPress->code == sf::Keyboard::Key::Space && gameState == GameState::PLAYING) {
 				if (!board->revealTile()) {
 					gameState = GameState::LOST;
 				}
 			}
-			else if (keyPress->code == sf::Keyboard::Key::F) {
-				// Plant/remove flag
+			else if (keyPress->code == sf::Keyboard::Key::F && gameState == GameState::PLAYING) {
 				board->plantFlag();
 			}
-			else if (keyPress->code == sf::Keyboard::Key::R) {
-				// Restart game
+			else if (keyPress->code == sf::Keyboard::Key::R) {  // restart game
 				resetGame();
 			}
 		}
