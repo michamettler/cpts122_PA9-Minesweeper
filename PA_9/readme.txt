@@ -1,6 +1,8 @@
-﻿# Minesweeper - SFML
+# Minesweeper - SFML
 
 A classic Minesweeper game implementation using C++ and SFML (Simple and Fast Multimedia Library).
+
+Video Link: https://youtu.be/f883Iv_Bvbo
 
 ## Team Members
 
