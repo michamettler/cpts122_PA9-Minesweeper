@@ -2,8 +2,6 @@
 
 A classic Minesweeper game implementation using C++ and SFML (Simple and Fast Multimedia Library).
 
-Video Link: https://youtu.be/f883Iv_Bvbo
-
 ## Team Members
 
 1. Brennan Hart - Lab Section 2 (Dylan P.)
